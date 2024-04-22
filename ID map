@@ -1,0 +1,6 @@
+
+// Sticky Button - button: id="openRegisterModal"
+
+// Table - table: id="studentsTable"  lo movi hacia tr-02 ( es donde quieres empezar a mostrar los datos, debaso del encabezado)
+
+// Table Body - tr: id="studentsTable" 
