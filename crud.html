@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Init - ¿Cómo hacer un CRUD en Javascript y Firebase?</title>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="crud.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="logo-container">
+          <a class="logo-a">Service City Cloud Service</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="title display-flex-center">
+      <div class="title-container display-flex-center">
+        <div class="title-body display-flex-center mg-05em">
+          <h1 class="mg-10">Registrar: personal</h1>
+          <div class="title-btn">
+            <button
+              class="button is-success mg-10"
+              id="openRegisterModal"
+            >
+              <i class="bi bi-plus fs-xxl"></i>
+              <span>Agregar</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Main Content - Container -->
+      <div class="main-container">
+        <!-- Main Content - Header -->
+
+        <!-- Table -->
+        <table class="table" id="studentsTable">
+          <!-- Table - Head -->
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apodo</th>
+              <th>WhatsApp</th>
+              <th>Estado</th>
+              <th>Observacion</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+
+          <!-- Table - Body -->
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Abraham</td>
+              <td>Castillo</td>
+              <td>6666-8888</td>
+              <td>Trabajando</td>
+              <td class="column-observacion">
+                Este mensaje esta por defecto en el HTML
+              </td>
+              <!-- Table - Body / icon edit -->
+              <td class="display-flex-center">
+                <button class="button is-warning" id="openUpdateModal">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </td>
+              <!-- Table - Body / icon delete -->
+              <td>
+                <button class="button is-danger" id="btn-delete">
+                  <i class="bi bi-journal-x"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Modal Content -->
+    <div class="modal-content">
+      <!-- Modal / Register -->
+      <div class="modal" id="registerModal">
+        <div class="modal-background">
+          <div class="modal-card">
+            <!-- Modal / Register - Header -->
+            <header class="modal-card-head">
+              <p class="modal-card-title">Registrar nuevo persona</p>
+              <button
+                class="delete"
+                aria-label="close"
+                id="closeRegisterModal"
+              ></button>
+            </header>
+
+            <!-- Modal / Register Section -->
+            <section class="modal-card-body">
+              <!-- Register Form -->
+              <form id="registerForm">
+                <!-- Register Form Field - Nombre -->
+                <div class="field">
+                  <label class="label">Nombre:</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="nombre"
+                      placeholder="Ingresar nombre"
+                    />
+                  </div>
+                </div>
+
+                <!-- Register Form Field - Apodo -->
+                <div class="field">
+                  <label class="label">Apodo:</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="apodo"
+                      placeholder="Ingresar apodo"
+                    />
+                  </div>
+                </div>
+
+                <!-- Register Form Field - Whatsapp -->
+                <div class="field">
+                  <label class="label">WhatsApp:</label>
+                  <div class="control has-icons-left">
+                    <input
+                      class="input is-success"
+                      type="text"
+                      name="whatsapp"
+                      placeholder="Ingresa el WhatsApp"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="bi bi-whatsapp"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Register Form Field - Estado -->
+                <div class="field">
+                  <label class="label">Estado:</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="estado"
+                      placeholder="Ingresar estado"
+                    />
+                  </div>
+                </div>
+
+                <!-- Register Form Field - Observacion -->
+                <div class="field">
+                  <label class="label">Observacion:</label>
+                  <div class="control">
+                    <textarea
+                      class="textarea"
+                      name="observacion"
+                      placeholde="Coloque alguna observación"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- Register Form - Footer -->
+                <footer class="modal-card-foot">
+                  <div class="buttons">
+                    <button
+                      type="submit"
+                      class="button is-success bi bi-floppy"
+                    >
+                      <span>Registrar</span>
+                    </button>
+                  </div>
+                </footer>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal / Update -->
+      <div class="modal" id="updateModal">
+        <div class="modal-background">
+          <div class="modal-card">
+            <!-- Modal / Update - Header -->
+            <header class="modal-card-head">
+              <p class="modal-card-title">Editar</p>
+              <button
+                class="delete"
+                aria-label="close"
+                id="closeUpdateModal"
+              ></button>
+            </header>
+
+            <!-- Modal / Update Section -->
+            <section class="modal-card-body">
+              <!-- Update Form -->
+              <form id="updateForm">
+                <!-- Update Form Field - Nombre -->
+                <div class="field">
+                  <label class="label">Nombre: </label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="nombre"
+                      placeholder="Ingresar nombre"
+                    />
+                  </div>
+                </div>
+
+                <!-- Update Form Field - Apodo -->
+                <div class="field">
+                  <label class="label">Apodo: </label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="apodo"
+                      placeholder="Ingresar apodo"
+                    />
+                  </div>
+                </div>
+
+                <!-- Update Form Field - WhatsApp -->
+                <div class="field">
+                  <label class="label">WhatsApp:</label>
+                  <div class="control has-icons-left">
+                    <input
+                      class="input is-success"
+                      type="text"
+                      name="whatsapp"
+                      placeholder="Ingresa el WhatsApp"
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="bi bi-whatsapp"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Update Form Field - Estado -->
+                <div class="field">
+                  <label class="label">Estado:</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="estado"
+                      placeholder="Ingresar estado"
+                    />
+                  </div>
+                </div>
+
+                <!-- Update Form Field - Observación -->
+                <div class="field">
+                  <label class="label">Observacion:</label>
+                  <div class="control">
+                    <textarea
+                      class="textarea"
+                      name="observacion"
+                      placeholde="Coloque alguna observación"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- Update Form - Footer -->
+                <footer class="modal-card-foot">
+                  <div class="buttons">
+                    <button
+                      type="submit"
+                      class="button is-success bi bi-floppy"
+                    >
+                      <span>Actualizar</span>
+                    </button>
+                  </div>
+                </footer>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Principal Script -->
+    <script type="module" src="crud.js"></script>
+  </body>
+</html>
