@@ -1,5 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  set,
+  onValue,
+  get,
+  remove
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
 
 const firebaseConfig = {
@@ -9,8 +17,11 @@ const firebaseConfig = {
   storageBucket: "service-city-app.appspot.com",
   messagingSenderId: "1068099519430",
   appId: "1:1068099519430:web:a896e65c893c36d833a8c7",
+  databaseURL: "https://service-city-app-default-rtdb.firebaseio.com/",
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const database = getDatabase(app);
+
+export { ref, push, set, onValue, get, remove, database };

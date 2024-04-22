@@ -12,7 +12,7 @@
     />
 
     <!-- Style -->
-    <link rel="stylesheet" href="crud.css" />
+    <link rel="stylesheet" href="crud/css/crud.css" />
   </head>
 
   <body>
@@ -25,10 +25,11 @@
       </nav>
     </header>
 
+    <!-- Sticky Button -->
     <section class="title display-flex-center">
       <div class="title-container display-flex-center">
         <div class="title-body display-flex-center mg-05em">
-          <h1 class="mg-10">Registrar: personal</h1>
+          <h1 class="mg-10">Personal - Tipo A</h1>
           <div class="title-btn">
             <button
               class="button is-success mg-10"
@@ -49,11 +50,10 @@
         <!-- Main Content - Header -->
 
         <!-- Table -->
-        <table class="table" id="studentsTable">
+        <table class="table"> <!-- id="studentsTable" -->
           <!-- Table - Head -->
           <thead>
             <tr>
-              <th>#</th>
               <th>Nombre</th>
               <th>Apodo</th>
               <th>WhatsApp</th>
@@ -64,10 +64,9 @@
             </tr>
           </thead>
 
-          <!-- Table - Body -->
-          <tbody>
+          <!-- Table Body -->
+          <tbody  id="studentsTable">
             <tr>
-              <th>1</th>
               <td>Abraham</td>
               <td>Castillo</td>
               <td>6666-8888</td>
@@ -77,13 +76,13 @@
               </td>
               <!-- Table - Body / icon edit -->
               <td class="display-flex-center">
-                <button class="button is-warning" id="openUpdateModal">
+                <button class="button is-warning" id="openUpdateModal" data-id="${studentKey}">
                   <i class="bi bi-pencil-square"></i>
                 </button>
               </td>
               <!-- Table - Body / icon delete -->
               <td>
-                <button class="button is-danger" id="btn-delete">
+                <button class="button is-danger btn-delete" data-id="${studentKey}">
                   <i class="bi bi-journal-x"></i>
                 </button>
               </td>
@@ -101,7 +100,7 @@
           <div class="modal-card">
             <!-- Modal / Register - Header -->
             <header class="modal-card-head">
-              <p class="modal-card-title">Registrar nuevo persona</p>
+              <p class="modal-card-title">Registrar nuevo personal</p>
               <button
                 class="delete"
                 aria-label="close"
@@ -147,7 +146,7 @@
                       class="input is-success"
                       type="text"
                       name="whatsapp"
-                      placeholder="Ingresa el WhatsApp"
+                      placeholder="Ingresa WhatsApp"
                     />
                     <span class="icon is-small is-left">
                       <i class="bi bi-whatsapp"></i>
@@ -197,7 +196,7 @@
         </div>
       </div>
 
-      <!-- Modal / Update -->
+      <!-- Modal / Update --------------------------------------------------------------------------------------------->
       <div class="modal" id="updateModal">
         <div class="modal-background">
           <div class="modal-card">
@@ -217,7 +216,7 @@
               <form id="updateForm">
                 <!-- Update Form Field - Nombre -->
                 <div class="field">
-                  <label class="label">Nombre: </label>
+                  <label class="label">Nombre:</label>
                   <div class="control">
                     <input
                       class="input"
@@ -230,7 +229,7 @@
 
                 <!-- Update Form Field - Apodo -->
                 <div class="field">
-                  <label class="label">Apodo: </label>
+                  <label class="label">Apodo:</label>
                   <div class="control">
                     <input
                       class="input"
@@ -249,7 +248,7 @@
                       class="input is-success"
                       type="text"
                       name="whatsapp"
-                      placeholder="Ingresa el WhatsApp"
+                      placeholder="Ingresar WhatsApp"
                     />
                     <span class="icon is-small is-left">
                       <i class="bi bi-whatsapp"></i>
@@ -301,6 +300,7 @@
     </div>
 
     <!-- Principal Script -->
-    <script type="module" src="crud.js"></script>
+    <script type="module" src="/crud/firebase.js"></script>
+    <script type="module" src="/crud/js/crud.js"></script>
   </body>
 </html>

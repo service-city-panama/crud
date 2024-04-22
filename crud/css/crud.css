@@ -1,0 +1,119 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+@import 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+
+:root {
+    --dark: #001233;
+    --white: #ffffff;
+    --yellow: #ffb703;
+    --blue: #1e90ff;
+}
+
+body {
+    font-family: 'poppins';
+}
+
+button span {
+    margin: 0 5px 0 5px;
+}
+
+.display-center {
+    display: grid;
+    place-items: center;
+}
+
+.display-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-xxl {
+    font-size: xx-large;
+}
+
+.mg-10 {
+    margin: 0 10px 0 10px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    width: 150px;
+    padding: 1em 1em 1em 1em;
+}
+
+.logo-a {
+    color: #444;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+/* Sticky Title */
+.title {
+    position: sticky;
+    top: 0;
+    margin: 20px;
+}
+
+.title-container {
+    width: fit-content;
+    background-color: var(--white);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+.title-body {
+    margin: .5em .5em .5em .5em;
+}
+
+.title h1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+/* Main */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 1em 1em 1em;
+}
+
+.main-content button {
+    padding: 0 10px;
+    transition: 1s ease-in-out all;
+}
+
+.main-content button:hover {
+    background-color: var(--blue);
+}
+
+.main-container {
+    padding: 2rem 3rem;
+    overflow: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+/* Table */
+.table i {
+    font-size: 20px;
+    margin: auto;
+}
+
+.table button {
+    margin: 0 .25rem 0 .25rem;
+}
+
+.table i:hover {
+    font-size: 2rem;
+    transition: .25s ease-in-out;
+}
+
+.column-observacion {
+    min-width: 300px;
+}
